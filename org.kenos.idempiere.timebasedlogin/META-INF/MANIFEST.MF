@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Currency Convertion from BCB
+Bundle-SymbolicName: org.kenos.idempiere.timebasedlogin
+Bundle-Version: 6.2.0.qualifier
+Automatic-Module-Name: org.kenos.idempiere.timebasedlogin
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Eclipse-RegisterBuddy: org.adempiere.tools
+Require-Bundle: org.adempiere.base,
+ org.adempiere.plugin.utils,
+ org.eclipse.osgi.services;bundle-version="3.7.100",
+ org.adempiere.ui.zk;bundle-version="6.2.0",
+ joda-time
+Service-Component: OSGI-INF/*.xml
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.adempiere.plugin.utils.Incremental2PackActivator
+Bundle-ClassPath: .
+Export-Package: org.kenos.idempiere.timebasedlogin.event,
+ org.kenos.idempiere.timebasedlogin.model
