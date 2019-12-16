@@ -103,11 +103,11 @@ INSERT INTO AD_Column (AD_Column_ID,Version,Name,Description,Help,AD_Table_ID,Co
 ;
 
 -- Dec 13, 2019, 12:01:25 PM BRT
-INSERT INTO AD_Column (AD_Column_ID,Version,Name,Description,Help,AD_Table_ID,ColumnName,FieldLength,IsKey,IsParent,IsMandatory,IsTranslated,IsIdentifier,IsEncrypted,AD_Reference_ID,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,AD_Element_ID,IsUpdateable,IsSelectionColumn,EntityType,IsAlwaysUpdateable,AD_Column_UU,IsToolbarButton,FKConstraintType) VALUES (214140,0.0,'Role','Responsibility Role','The Role determines security and access a user who has this Role will have in the System.',200262,'AD_Role_ID',10,'N','N','N','N','N','N',19,0,0,'Y',TO_TIMESTAMP('2019-12-13 12:01:25','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-13 12:01:25','YYYY-MM-DD HH24:MI:SS'),100,123,'N','N','EXT','N','afbe6783-d98a-4c5f-b388-a630b6d70baf','N','C')
+INSERT INTO AD_Column (AD_Column_ID,Version,Name,Description,Help,AD_Table_ID,ColumnName,FieldLength,IsKey,IsParent,IsMandatory,IsTranslated,IsIdentifier,IsEncrypted,AD_Reference_ID,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,AD_Element_ID,IsUpdateable,IsSelectionColumn,EntityType,IsAlwaysUpdateable,AD_Column_UU,IsToolbarButton,FKConstraintType) VALUES (214140,0.0,'Role','Responsibility Role','The Role determines security and access a user who has this Role will have in the System.',200262,'AD_Role_ID',10,'N','Y','N','N','N','N',19,0,0,'Y',TO_TIMESTAMP('2019-12-13 12:01:25','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-13 12:01:25','YYYY-MM-DD HH24:MI:SS'),100,123,'N','N','EXT','N','afbe6783-d98a-4c5f-b388-a630b6d70baf','N','C')
 ;
 
 -- Dec 13, 2019, 12:01:26 PM BRT
-INSERT INTO AD_Column (AD_Column_ID,Version,Name,Description,Help,AD_Table_ID,ColumnName,FieldLength,IsKey,IsParent,IsMandatory,IsTranslated,IsIdentifier,IsEncrypted,AD_Reference_ID,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,AD_Element_ID,IsUpdateable,IsSelectionColumn,EntityType,IsAlwaysUpdateable,AD_Column_UU,IsToolbarButton) VALUES (214141,0.0,'User/Contact','User within the system - Internal or Business Partner Contact','The User identifies a unique user in the system. This could be an internal user or a business partner contact',200262,'AD_User_ID',10,'N','N','N','N','N','N',30,0,0,'Y',TO_TIMESTAMP('2019-12-13 12:01:25','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-13 12:01:25','YYYY-MM-DD HH24:MI:SS'),100,138,'N','N','EXT','N','f7d4a2b8-c2ff-4598-ae99-45c5b9480291','N')
+INSERT INTO AD_Column (AD_Column_ID,Version,Name,Description,Help,AD_Table_ID,ColumnName,FieldLength,IsKey,IsParent,IsMandatory,IsTranslated,IsIdentifier,IsEncrypted,AD_Reference_ID,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,AD_Element_ID,IsUpdateable,IsSelectionColumn,EntityType,IsAlwaysUpdateable,AD_Column_UU,IsToolbarButton) VALUES (214141,0.0,'User/Contact','User within the system - Internal or Business Partner Contact','The User identifies a unique user in the system. This could be an internal user or a business partner contact',200262,'AD_User_ID',10,'N','Y','N','N','N','N',30,0,0,'Y',TO_TIMESTAMP('2019-12-13 12:01:25','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-13 12:01:25','YYYY-MM-DD HH24:MI:SS'),100,138,'N','N','EXT','N','f7d4a2b8-c2ff-4598-ae99-45c5b9480291','N')
 ;
 
 -- Dec 13, 2019, 12:01:26 PM BRT
@@ -167,7 +167,7 @@ UPDATE AD_Column SET Name='Date Start', Description='Date Start for this Order',
 ;
 
 -- Dec 13, 2019, 12:12:09 PM BRT
-INSERT INTO AD_Tab (AD_Tab_ID,Name,AD_Window_ID,SeqNo,IsSingleRow,AD_Table_ID,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,HasTree,IsInfoTab,IsTranslationTab,IsReadOnly,Processing,ImportFields,TabLevel,IsSortTab,EntityType,IsInsertRecord,IsAdvancedTab,AD_Tab_UU,TreeDisplayedOn) VALUES (200277,'Time-base Login',111,110,'Y',200262,0,0,'Y',TO_TIMESTAMP('2019-12-13 12:12:08','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-13 12:12:08','YYYY-MM-DD HH24:MI:SS'),100,'N','N','N','N','N','N',1,'N','EXT','Y','N','a9e68db2-d600-4ba3-ac86-4e7d0d4f0262','B')
+INSERT INTO AD_Tab (AD_Tab_ID,Name,AD_Window_ID,SeqNo,IsSingleRow,AD_Table_ID,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,HasTree,IsInfoTab,IsTranslationTab,IsReadOnly,Processing,ImportFields,TabLevel,IsSortTab,EntityType,IsInsertRecord,IsAdvancedTab,AD_Tab_UU,TreeDisplayedOn) VALUES (200277,'Time-Based Login',111,110,'Y',200262,0,0,'Y',TO_TIMESTAMP('2019-12-13 12:12:08','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-13 12:12:08','YYYY-MM-DD HH24:MI:SS'),100,'N','N','N','N','N','N',1,'N','EXT','Y','N','a9e68db2-d600-4ba3-ac86-4e7d0d4f0262','B')
 ;
 
 -- Dec 13, 2019, 12:12:19 PM BRT
@@ -462,7 +462,7 @@ UPDATE AD_Tab SET SeqNo=111,Updated=TO_TIMESTAMP('2019-12-13 12:22:15','YYYY-MM-
 ;
 
 -- Dec 13, 2019, 12:22:27 PM BRT
-INSERT INTO AD_Tab (AD_Tab_ID,Name,AD_Window_ID,SeqNo,IsSingleRow,AD_Table_ID,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,HasTree,IsInfoTab,IsTranslationTab,IsReadOnly,Processing,ImportFields,TabLevel,IsSortTab,EntityType,IsInsertRecord,IsAdvancedTab,AD_Tab_UU,TreeDisplayedOn) VALUES (200278,'Time-base Login',108,91,'Y',200262,0,0,'Y',TO_TIMESTAMP('2019-12-13 12:22:26','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-13 12:22:26','YYYY-MM-DD HH24:MI:SS'),100,'N','N','N','N','N','N',1,'N','EXT','Y','N','bef601d3-8f2b-453a-bb71-b3e7ffd70173','B')
+INSERT INTO AD_Tab (AD_Tab_ID,Name,AD_Window_ID,SeqNo,IsSingleRow,AD_Table_ID,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,HasTree,IsInfoTab,IsTranslationTab,IsReadOnly,Processing,ImportFields,TabLevel,IsSortTab,EntityType,IsInsertRecord,IsAdvancedTab,AD_Tab_UU,TreeDisplayedOn) VALUES (200278,'Time-Based Login',108,91,'Y',200262,0,0,'Y',TO_TIMESTAMP('2019-12-13 12:22:26','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-13 12:22:26','YYYY-MM-DD HH24:MI:SS'),100,'N','N','N','N','N','N',1,'N','EXT','Y','N','bef601d3-8f2b-453a-bb71-b3e7ffd70173','B')
 ;
 
 -- Dec 13, 2019, 12:22:42 PM BRT
@@ -581,15 +581,52 @@ UPDATE AD_Column SET AD_Reference_ID=15, IsUpdateable='Y',Updated=TO_TIMESTAMP('
 UPDATE AD_Column SET AD_Reference_ID=15, IsUpdateable='Y',Updated=TO_TIMESTAMP('2019-12-13 15:55:42','YYYY-MM-DD HH24:MI:SS'),UpdatedBy=100 WHERE AD_Column_ID=214142
 ;
 
--- Dec 13, 2019, 3:58:53 PM BRT
-UPDATE AD_Column SET DefaultValue='-1',Updated=TO_TIMESTAMP('2019-12-13 15:58:53','YYYY-MM-DD HH24:MI:SS'),UpdatedBy=100 WHERE AD_Column_ID=214141
-;
-
 -- Dec 13, 2019, 3:59:07 PM BRT
 UPDATE AD_Column SET DefaultValue=NULL,Updated=TO_TIMESTAMP('2019-12-13 15:59:07','YYYY-MM-DD HH24:MI:SS'),UpdatedBy=100 WHERE AD_Column_ID=214140
 ;
 
--- Dec 13, 2019, 3:59:12 PM BRT
-UPDATE AD_Column SET DefaultValue='-1',Updated=TO_TIMESTAMP('2019-12-13 15:59:12','YYYY-MM-DD HH24:MI:SS'),UpdatedBy=100 WHERE AD_Column_ID=214140
+-- Dec 16, 2019, 3:59:09 PM BRT
+DELETE FROM AD_Field_Trl WHERE AD_Field_ID=206351
+;
+
+-- Dec 16, 2019, 3:59:09 PM BRT
+DELETE FROM AD_Field WHERE AD_Field_ID=206351
+;
+
+-- Dec 16, 2019, 3:59:32 PM BRT
+DELETE FROM AD_Field_Trl WHERE AD_Field_ID=206330
+;
+
+-- Dec 16, 2019, 3:59:32 PM BRT
+DELETE FROM AD_Field WHERE AD_Field_ID=206330
+;
+
+-- Plugin: Time-Based Login Access
+-- Dec 16, 2019, 4:29:37 PM BRT
+INSERT INTO AD_Message (MsgType,MsgText,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,AD_Message_ID,Value,EntityType,AD_Message_UU) VALUES ('I','End Time should be after Start Time',0,0,'Y',TO_TIMESTAMP('2019-12-16 16:29:37','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-16 16:29:37','YYYY-MM-DD HH24:MI:SS'),100,200582,'TBL_TimeSlotStart<TimeSlotEnd','EXT','809f1f0c-8f81-41f4-9851-38b765c7f032')
+;
+
+-- Dec 16, 2019, 4:30:22 PM BRT
+INSERT INTO AD_Message (MsgType,MsgText,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,AD_Message_ID,Value,EntityType,AD_Message_UU) VALUES ('E','Date Finish should be after Date Start',0,0,'Y',TO_TIMESTAMP('2019-12-16 16:30:21','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-16 16:30:21','YYYY-MM-DD HH24:MI:SS'),100,200583,'TBL_DateFinish<DateStart','U','8d5ee420-a8d8-42cf-abaa-1554173c062c')
+;
+
+-- Dec 16, 2019, 4:30:44 PM BRT
+INSERT INTO AD_Message (MsgType,MsgText,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,AD_Message_ID,Value,EntityType,AD_Message_UU) VALUES ('E','Duplicated restriction for the same User/Role/Period',0,0,'Y',TO_TIMESTAMP('2019-12-16 16:30:43','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-16 16:30:43','YYYY-MM-DD HH24:MI:SS'),100,200584,'TBL_DuplicatedRestric','U','0348159c-a629-4486-990f-04fdd2ffcec2')
+;
+
+-- Dec 16, 2019, 4:31:05 PM BRT
+INSERT INTO AD_Message (MsgType,MsgText,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,AD_Message_ID,Value,EntityType,AD_Message_UU) VALUES ('E','Time or Date slot is Mandatory',0,0,'Y',TO_TIMESTAMP('2019-12-16 16:31:04','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-16 16:31:04','YYYY-MM-DD HH24:MI:SS'),100,200585,'TBL_TimeOrDateSlotMandatory','U','db803428-4bed-4ac4-9ca4-06d6290e7ff6')
+;
+
+-- Dec 16, 2019, 4:31:18 PM BRT
+INSERT INTO AD_Message (MsgType,MsgText,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,AD_Message_ID,Value,EntityType,AD_Message_UU) VALUES ('E','User allowed to log-in only between {0} and {1}',0,0,'Y',TO_TIMESTAMP('2019-12-16 16:31:18','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-16 16:31:18','YYYY-MM-DD HH24:MI:SS'),100,200586,'TBL_TimeNotAllowed','U','39b2c250-52a0-40b9-932c-3b8eb5605f97')
+;
+
+-- Dec 16, 2019, 4:31:30 PM BRT
+INSERT INTO AD_Message (MsgType,MsgText,AD_Client_ID,AD_Org_ID,IsActive,Created,CreatedBy,Updated,UpdatedBy,AD_Message_ID,Value,EntityType,AD_Message_UU) VALUES ('E','User not allowed to login on {0}',0,0,'Y',TO_TIMESTAMP('2019-12-16 16:31:30','YYYY-MM-DD HH24:MI:SS'),100,TO_TIMESTAMP('2019-12-16 16:31:30','YYYY-MM-DD HH24:MI:SS'),100,200587,'TBL_DayNotAllowed','U','ca45a363-853a-4804-a60a-def55c964d83')
+;
+
+-- Dec 16, 2019, 4:31:30 PM BRT
+SELECT Register_Migration_Script ('201912131120_ADUserLoginTime.sql') FROM DUAL
 ;
 
