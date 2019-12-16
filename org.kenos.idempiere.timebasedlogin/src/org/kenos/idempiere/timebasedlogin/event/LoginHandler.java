@@ -31,6 +31,10 @@ public class LoginHandler extends AbstractEventHandler
 			int AD_Role_ID = Env.getAD_Role_ID(ctx);
 			int AD_User_ID = Env.getAD_User_ID(ctx);
 			
+			//	System and SuperUser has a free pass
+			if (AD_User_ID == 0 || AD_User_ID == 100)
+				return;
+			
 			MTimeBasedLogin.check (AD_Role_ID, AD_User_ID);
 		}
 	}	//	doHandleEvent
