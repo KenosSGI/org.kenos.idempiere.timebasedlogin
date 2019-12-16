@@ -75,9 +75,10 @@ public class MTimeBasedLogin extends X_AD_TimeBasedLogin
 				.append(",").append(COLUMNNAME_DateFinish).append(",'[]') @> ")
 				.append(DB.TO_DATE (new Timestamp(now.getMillis()))).append(") ");
 		
-		MTimeBasedLogin restrictions = new Query (Env.getCtx(), Table_Name, where.toString(), null)
+		Properties ctx = Env.getCtx();
+		MTimeBasedLogin restrictions = new Query (ctx, Table_Name, where.toString(), null)
 			.setParameters(AD_Role_ID, AD_User_ID)
-			.setOrderBy(COLUMNNAME_AD_User_ID + " DESC")
+			.setOrderBy(COLUMNNAME_AD_User_ID + " , " + COLUMNNAME_DateStart)
 			.first();
 		
 		
@@ -88,9 +89,8 @@ public class MTimeBasedLogin extends X_AD_TimeBasedLogin
 			LocalTime slotEnd = toLocalTime (restrictions.getTimeSlotEnd());
 			//
 			Interval interval = new Interval (slotStart.getMillisOfDay(), slotEnd.getMillisOfDay());
-			if (!interval.contains(now.getMillisOfDay()));
-				throw new RuntimeException ("User allowed to log-in only between " + slotStart + " and " + slotEnd);
-//				System.out.println("User allowed to log-in only between " + slotStart + " and " + slotEnd + ". Actual time: " + now);
+			if (!interval.contains(now.getMillisOfDay()))
+				throw new RuntimeException (Msg.getMsg (ctx, "TBL_TimeNotAllowed", new Object[] {slotStart, slotEnd}));
 		}
 		
 		//	Check for day of week restrictions
@@ -99,9 +99,7 @@ public class MTimeBasedLogin extends X_AD_TimeBasedLogin
 			String[] daysOfWeek = new String[] {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
 			//
 			if (!restrictions.get_ValueAsBoolean("On" + daysOfWeek[now.getDayOfWeek()-1]))
-				throw new RuntimeException ("User not allowed to log-in on " + daysOfWeek[now.getDayOfWeek()-1]);
-//				System.out.println ("User not allowed to log-in on " + daysOfWeek[now.getDayOfWeek()-1]);
-
+				throw new RuntimeException (Msg.getMsg (ctx, "TBL_DayNotAllowed", new Object[] {Msg.getMsg (ctx, daysOfWeek[now.getDayOfWeek()-1])}));
 		}
 	}	//	check
 	
@@ -127,41 +125,35 @@ public class MTimeBasedLogin extends X_AD_TimeBasedLogin
 	@Override
 	protected boolean beforeSave(boolean newRecord)
 	{
-		//	User or Role, never both
-		if (getAD_User_ID () > 0)
-			setAD_Role_ID (-1);
 		//
 		if (!isTimeSlot() && !isDateSlot())
 		{
-			log.saveError("FillMandatory", Msg.getMsg (getCtx(), "TimeOrDateSlotMandatory"));
+			log.saveError("FillMandatory", Msg.getMsg (getCtx(), "TBL_TimeOrDateSlotMandatory"));
 			//
 			return false;
 		}
 		
-		if ((getDateStart() == null && getDateFinish() != null) ||
-				(getDateStart() != null && getDateFinish() == null))
-		{
-			log.saveError("FillMandatory", Msg.getMsg (getCtx(), "DateStartOrFinishMandatory"));
-			//
-			return false;
-		}
+		if (getDateStart() == null && getDateFinish() != null)
+			setDateStart(getDateFinish());
+		if (getDateStart() != null && getDateFinish() == null)
+			setDateFinish(getDateStart());
 		
 		//	Check if time slot is filled
 		if (isTimeSlot())
 		{
 			if (getTimeSlotStart() == null)
 			{
-				log.saveError("Error", Msg.getElement(getCtx(), COLUMNNAME_TimeSlotStart));
+				log.saveError("FillMandatory", Msg.getElement(getCtx(), COLUMNNAME_TimeSlotStart));
 				return false;
 			}
 			if (getTimeSlotEnd() == null)
 			{
-				log.saveError("Error", Msg.getElement(getCtx(), COLUMNNAME_TimeSlotEnd));
+				log.saveError("FillMandatory", Msg.getElement(getCtx(), COLUMNNAME_TimeSlotEnd));
 				return false;
 			}
 			if (getTimeSlotEnd().before(getTimeSlotStart()))
 			{
-				log.saveError("Error", "@TimeSlotStart@ < @TimeSlotEnd@");
+				log.saveError("Error", Msg.getMsg (getCtx(), "TBL_TimeSlotStart<TimeSlotEnd"));
 				return false;
 			}
 		}
@@ -205,7 +197,7 @@ public class MTimeBasedLogin extends X_AD_TimeBasedLogin
 			
 			if (getDateFinish().before(getDateStart()))
 			{
-				log.saveError("Error", "@DateFinish@ < @DateStart@");
+				log.saveError("Error", Msg.getMsg (getCtx(), "TBL_DateFinish<DateStart"));
 				return false;
 			}
 			
@@ -219,7 +211,7 @@ public class MTimeBasedLogin extends X_AD_TimeBasedLogin
 		//	Multiple configurations for the same user/role not allowed
 		if (count > 0)
 		{
-			log.saveError("Error", Msg.getMsg (getCtx(), "Duplicated restriction to the same User/Role"));
+			log.saveError("Error", Msg.getMsg (getCtx(), "TBL_DuplicatedRestric"));
 			return false;
 		}
 		
